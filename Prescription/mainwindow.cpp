@@ -66,7 +66,6 @@ void MainWindow::verifBase()
 
     if (this->base.lastError().isValid())//si la requete renvoie une erreur
     {
-        qDebug()<<"Coucou";
         this->base.exec("create table medecin (docNum integer primary key, docNom varchar(20), docNumSS varchar(15), docAdresse1 varchar(50), docAdresse2 varchar(50), docCP varchar(5), docVille varchar(30), docTel varchar(10));");
         this->base.exec("create table patient (patNum integer primary key, patNom varchar(20), patNumSS varchar(15), patDoc integer, foreign key (patDoc) references medecin(patNum));");
         this->base.exec("create table prescription (presNum integer primary key, presDuree integer, presDateFin date, presModRenouv varchar(10), presType varchar(10), patNum integer, foreign key (patNum) references patient(patNum));");
@@ -107,6 +106,7 @@ void MainWindow::chargeListeMedecins()
 {
     //vidange
     ui->listWidgetMedecins->clear();
+    ui->comboBoxPatientMedecin->clear();
     this->vectorIdMedecins.clear();
 
     /**************************************/
@@ -116,7 +116,7 @@ void MainWindow::chargeListeMedecins()
     if(requete.exec("SELECT * FROM medecin ORDER BY docNom;"))
     {
         ui->comboBoxPatientMedecin->addItem("Sélectionner un médecin");
-        //this->vectorIdMedecins.push_back(-1);
+        this->vectorIdMedecins.push_back(-1);
         while(requete.next())
         {
            ui->listWidgetMedecins->addItem(requete.value(1).toString()+" ("+requete.value(2).toString()+")");
@@ -151,7 +151,6 @@ void MainWindow::chargeListePrescription()
 void MainWindow::on_listWidgetPatients_clicked(QModelIndex index)
 {
     QSqlQuery res=this->base.exec("select patNom, patNumSS, patDoc from patient where patNum="+QString::number(this->vectorIdPatients.value(ui->listWidgetPatients->currentIndex().row()))+";");
-    qDebug()<<"select patNom, patNumSS, patDoc from patient where patNum="+QString::number(this->vectorIdPatients.value(ui->listWidgetPatients->currentIndex().row()))+";";
     //si le patient a bien été trouvé
     if (res.first())
     {
@@ -248,7 +247,7 @@ void MainWindow::on_lineEditMedecinAdr2_textChanged(QString )
 
 void MainWindow::on_pushButtonMedecinAjouter_clicked()
 {
-    this->base.exec("insert into medecin (docNom,docNumSS,docAdresse1,docAdresse2,docCP,docVille,docTel) values ('"+ui->lineEditMedecinNom->text().trimmed()+"','"+ui->lineEditMedecinNumSS->text().trimmed()+"','"+ui->lineEditMedecinAdr1->text().trimmed()+"'),'"+ui->lineEditMedecinAdr2->text().trimmed()+"','"+ui->lineEditMedecinCP->text().trimmed()+"','"+ui->lineEditMedecinVille->text().trimmed()+"','"+ui->lineEditMedecinTel->text().trimmed()+"';");
+    this->base.exec("insert into medecin (docNom,docNumSS,docAdresse1,docAdresse2,docCP,docVille,docTel) values ('"+ui->lineEditMedecinNom->text().trimmed()+"','"+ui->lineEditMedecinNumSS->text().trimmed()+"','"+ui->lineEditMedecinAdr1->text().trimmed()+"','"+ui->lineEditMedecinAdr2->text().trimmed()+"','"+ui->lineEditMedecinCP->text().trimmed()+"','"+ui->lineEditMedecinVille->text().trimmed()+"','"+ui->lineEditMedecinTel->text().trimmed()+"');");
     this->chargeListeMedecins();
     this->videLineEditMedecin();
 }
@@ -263,7 +262,6 @@ void MainWindow::on_pushButtonMedecinSupprimer_clicked()
 void MainWindow::on_listWidgetMedecins_clicked(QModelIndex index)
 {
     QSqlQuery res=this->base.exec("select * from medecin where docNum="+QString::number(this->vectorIdMedecins.value(ui->listWidgetMedecins->currentIndex().row()))+";");
-    qDebug()<<"select * from medecin where docNum="+QString::number(this->vectorIdMedecins.value(ui->listWidgetMedecins->currentIndex().row()))+";";
     if (res.first())
     {
         //affichage dans l'interface
@@ -331,7 +329,6 @@ void MainWindow::on_pushButtonPrescriptionSupprimer_clicked()
 void MainWindow::on_pushButtonPatientAjouter_clicked()
 {
     this->base.exec("insert into patient (patNom, patNumSS, patDoc) values ('"+ui->lineEditPatientNom->text().trimmed()+"','"+ui->lineEditPatientNumSS->text().trimmed()+"','"+QString::number(this->vectorIdMedecins.value(ui->comboBoxPatientMedecin->currentIndex()))+"');");
-    qDebug()<<"insert into patient (patNom, patNum, patDoc) values ('"+ui->lineEditPatientNom->text().trimmed()+"','"+ui->lineEditPatientNumSS->text().trimmed()+"','"+QString::number(this->vectorIdMedecins.value(ui->comboBoxPatientMedecin->currentIndex()))+"');";
     this->chargeListePatient();
     this->videLineEditPatient();
 }
@@ -385,11 +382,11 @@ void MainWindow::on_pushButtonPrescriptionEnregistrer_clicked()
     QSqlQuery newDefaut;
             if(newDefaut.exec("update defaut set medCP='"+medCP+"',medVille='"+medVille+"' ,dureeDSI="+dureeDSI+" ,dureeOrdo="+dureeOrdo+";"))
             {
-                qDebug("ça marche");
+
             }
             else
             {
-                qDebug()<<("update defaut set medCP='"+medCP+"',medVille='"+medVille+"' ,dureeDSI="+dureeDSI+" ,dureeOrdo="+dureeOrdo+";");
+
             }
 }
 

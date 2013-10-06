@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue Sep 24 22:10:39 2013
+** Created: Sun Oct 6 12:33:39 2013
 **      by: Qt User Interface Compiler version 4.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -487,7 +487,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidgetMain->setCurrentIndex(2);
+        tabWidgetMain->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

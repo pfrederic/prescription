@@ -86,6 +86,7 @@ void MainWindow::chargeListePatient()
 {
     //vidage des listes des patients
     ui->listWidgetPatients->clear();
+    ui->comboBoxPrescriptionPatient->clear();
 
     /**************************************/
     /** chargement de la liste de patient */
@@ -97,6 +98,7 @@ void MainWindow::chargeListePatient()
         while(req.next())
         {
                ui->listWidgetPatients->addItem(req.value(1).toString()+" ("+req.value(2).toString()+")");
+               ui->comboBoxPrescriptionPatient->addItem(req.value(1).toString()+' ('+req.value(2).toString()+')');
                this->vectorIdPatients.push_back(req.value(0).toInt());
         }
     }
@@ -124,6 +126,8 @@ void MainWindow::chargeListeMedecins()
            this->vectorIdMedecins.push_back(requete.value(0).toInt());
         }
     }
+    ui->pushButtonPrescriptionModifier->setEnabled(false);
+    ui->pushButtonPrescriptionSupprimer->setEnabled(false);
 }
 
 void MainWindow::chargeListePrescription()
@@ -144,6 +148,7 @@ void MainWindow::chargeListePrescription()
 
         }
     }
+
 }
 
 
@@ -261,7 +266,8 @@ void MainWindow::on_pushButtonMedecinSupprimer_clicked()
 
 void MainWindow::on_listWidgetMedecins_clicked(QModelIndex index)
 {
-    QSqlQuery res=this->base.exec("select * from medecin where docNum="+QString::number(this->vectorIdMedecins.value(ui->listWidgetMedecins->currentIndex().row()))+";");
+    QSqlQuery res=this->base.exec("select * from medecin where docNum="+QString::number(this->vectorIdMedecins.value(ui->listWidgetMedecins->currentIndex().row()+1))+";");
+    qDebug()<<"select * from medecin where docNum="+QString::number(this->vectorIdMedecins.value(ui->listWidgetMedecins->currentIndex().row()+1))+";";
     if (res.first())
     {
         //affichage dans l'interface
@@ -310,13 +316,20 @@ void MainWindow::on_listWidgetPrescriptions_clicked(QModelIndex index)
     int numLigneListePres=ui->listWidgetPrescriptions->currentIndex().row();
     int idPres=this->vectorIdPrescription.value(numLigneListePres);
     QSqlQuery resPres;
-    resPres=this->base.exec("select * from prescription where presNum="+QString::number(idPres)+";");
-    //si l'étudiant a bien été trouvé
+    QSqlQuery resPres2;
+    resPres=this->base.exec("select presDateFin,presDuree, strftime('%d',presDateFin), strftime('%m',presDateFin)-presDuree, strftime('%Y',presDateFin), patient.patNum from prescription inner join patient on prescription.patNum=patient.patNum where presNum="+QString::number(idPres)+";");
+    qDebug()<<"select presDateFin,presDuree, strftime('%d',presDateFin), strftime('%m',presDateFin)-presDuree, strftime('%Y',presDateFin), patNum from prescription inner join patient on prescription.patNum=patient.patNum where presNum="+QString::number(idPres)+";";
     if (resPres.first())
     {
         ui->pushButtonPrescriptionSupprimer->setEnabled(true);
         ui->pushButtonPrescriptionModifier->setEnabled(true);
-        //ui->comboBoxPrescriptionPatient->addItem(resPres.value(1).toString());
+        ui->spinBoxPrescriptionDuree->setValue(resPres.value(1).toInt());
+        QString dateDebut2=resPres.value(2).toString()+'/'+resPres.value(3).toString()+'/'+resPres.value(4).toString();
+        QDate date =QDate::fromString(dateDebut2,"dd'/'MM'/'yy");
+        qDebug()<<date;
+        ui->comboBoxPatientMedecin->setCurrentIndex(this->vectorIdPrescription.lastIndexOf(resPres.value(5).toInt()));
+        ui->pushButtonPrescriptionModifier->setEnabled(true);
+        ui->pushButtonPrescriptionSupprimer->setEnabled(true);
     }
 }
 
@@ -324,6 +337,20 @@ void MainWindow::on_pushButtonPrescriptionSupprimer_clicked()
 {
     this->base.exec("delete from prescription where presNum="+QString::number(this->vectorIdPrescription.value(ui->listWidgetPrescriptions->currentIndex().row()))+";");
     this->chargeListePrescription();
+}
+
+void MainWindow::on_pushButtonPrescriptionAjouter_clicked()
+{
+    this->base.exec("insert into prescription (patNum,presDateFin-presDuree,docAdresse1,docAdresse2,docCP,docVille,docTel) values ('"+ui->lineEditMedecinNom->text().trimmed()+"','"+ui->lineEditMedecinNumSS->text().trimmed()+"','"+ui->lineEditMedecinAdr1->text().trimmed()+"'),'"+ui->lineEditMedecinAdr2->text().trimmed()+"','"+ui->lineEditMedecinCP->text().trimmed()+"','"+ui->lineEditMedecinVille->text().trimmed()+"','"+ui->lineEditMedecinTel->text().trimmed()+"';");
+    this->chargeListeMedecins();
+}
+
+void MainWindow::on_pushButtonPrescriptionModifier_clicked()
+{
+    QString reqUpdate="update prescription set presDuree="+QString::number(ui->spinBoxPrescriptionDuree->value())+" where presNum="+QString::number(this->vectorIdPrescription.value(ui->listWidgetPrescriptions->currentIndex().row()))+";";
+    this->base.exec(reqUpdate);
+    this->chargeListePrescription();
+    qDebug()<<(reqUpdate);
 }
 
 void MainWindow::on_pushButtonPatientAjouter_clicked()
@@ -368,6 +395,7 @@ void MainWindow::chargeParametre()
             ui->lineEditParametreVilleMedecin->setText(requete.value(1).toString());
             ui->spinBoxParametreDureeDSI->setValue(requete.value(2).toInt());
             ui->spinBoxPrescriptionDureeOdronnance->setValue(requete.value(3).toInt());
+            ui->spinBoxPrescriptionDuree->setValue(requete.value(2).toInt());
          }
     }
 
@@ -404,3 +432,4 @@ void MainWindow::on_spinBoxParametreDureeDSI_editingFinished()
 {
     ui->spinBoxPrescriptionDureeOdronnance->setFocus();
 }
+

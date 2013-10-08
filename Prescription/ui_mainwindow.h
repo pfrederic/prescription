@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Sun Oct 6 12:33:39 2013
+** Created: Tue Oct 8 15:52:40 2013
 **      by: Qt User Interface Compiler version 4.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -286,11 +286,11 @@ public:
         groupBox_11->setGeometry(QRect(400, 270, 271, 111));
         pushButtonPrescriptionAjouter = new QPushButton(groupBox_11);
         pushButtonPrescriptionAjouter->setObjectName(QString::fromUtf8("pushButtonPrescriptionAjouter"));
-        pushButtonPrescriptionAjouter->setEnabled(false);
+        pushButtonPrescriptionAjouter->setEnabled(true);
         pushButtonPrescriptionAjouter->setGeometry(QRect(20, 30, 111, 23));
         pushButtonPrescriptionModifier = new QPushButton(groupBox_11);
         pushButtonPrescriptionModifier->setObjectName(QString::fromUtf8("pushButtonPrescriptionModifier"));
-        pushButtonPrescriptionModifier->setEnabled(false);
+        pushButtonPrescriptionModifier->setEnabled(true);
         pushButtonPrescriptionModifier->setGeometry(QRect(140, 30, 111, 23));
         pushButtonPrescriptionAbandonner = new QPushButton(groupBox_11);
         pushButtonPrescriptionAbandonner->setObjectName(QString::fromUtf8("pushButtonPrescriptionAbandonner"));
@@ -298,7 +298,7 @@ public:
         pushButtonPrescriptionAbandonner->setGeometry(QRect(20, 70, 111, 23));
         pushButtonPrescriptionSupprimer = new QPushButton(groupBox_11);
         pushButtonPrescriptionSupprimer->setObjectName(QString::fromUtf8("pushButtonPrescriptionSupprimer"));
-        pushButtonPrescriptionSupprimer->setEnabled(false);
+        pushButtonPrescriptionSupprimer->setEnabled(true);
         pushButtonPrescriptionSupprimer->setGeometry(QRect(140, 70, 111, 23));
         tabWidgetMain->addTab(tab2, QString());
         tab3 = new QWidget();
@@ -487,7 +487,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidgetMain->setCurrentIndex(3);
+        tabWidgetMain->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

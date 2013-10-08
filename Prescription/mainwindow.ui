@@ -59,7 +59,7 @@
      <enum>QTabWidget::North</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab1">
      <attribute name="title">
@@ -600,7 +600,7 @@
       </property>
       <widget class="QPushButton" name="pushButtonPrescriptionAjouter">
        <property name="enabled">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="geometry">
         <rect>
@@ -616,7 +616,7 @@
       </widget>
       <widget class="QPushButton" name="pushButtonPrescriptionModifier">
        <property name="enabled">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="geometry">
         <rect>
@@ -648,7 +648,7 @@
       </widget>
       <widget class="QPushButton" name="pushButtonPrescriptionSupprimer">
        <property name="enabled">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="geometry">
         <rect>

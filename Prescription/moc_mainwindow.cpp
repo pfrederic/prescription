@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Thu Oct 3 08:17:01 2013
+** Created: Tue Oct 8 15:45:16 2013
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-      26,   14, // methods
+      28,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -57,6 +57,8 @@ static const uint qt_meta_data_MainWindow[] = {
     1001,   11,   11,   11, 0x08,
     1050,   11,   11,   11, 0x08,
     1096,   11,   11,   11, 0x08,
+    1143,   11,   11,   11, 0x08,
+    1187,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -88,6 +90,8 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_lineEditParametreVilleMedecin_returnPressed()\0"
     "on_spinBoxParametreDureeDSI_editingFinished()\0"
     "on_pushButtonPrescriptionEnregistrer_clicked()\0"
+    "on_pushButtonPrescriptionModifier_clicked()\0"
+    "on_pushButtonPrescriptionAjouter_clicked()\0"
 };
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -145,9 +149,11 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 23: on_lineEditParametreVilleMedecin_returnPressed(); break;
         case 24: on_spinBoxParametreDureeDSI_editingFinished(); break;
         case 25: on_pushButtonPrescriptionEnregistrer_clicked(); break;
+        case 26: on_pushButtonPrescriptionModifier_clicked(); break;
+        case 27: on_pushButtonPrescriptionAjouter_clicked(); break;
         default: ;
         }
-        _id -= 26;
+        _id -= 28;
     }
     return _id;
 }

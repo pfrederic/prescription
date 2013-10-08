@@ -68,6 +68,8 @@ private slots:
     void on_lineEditParametreVilleMedecin_returnPressed();
     void on_spinBoxParametreDureeDSI_editingFinished();
     void on_pushButtonPrescriptionEnregistrer_clicked();
+    void on_pushButtonPrescriptionModifier_clicked();
+    void on_pushButtonPrescriptionAjouter_clicked();
 };
 
 #endif // MAINWINDOW_H

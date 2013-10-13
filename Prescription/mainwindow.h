@@ -30,9 +30,10 @@ private:
     void chargeListePrescription();//Charge la liste de tous les patients
     void videLineEditPatient();//Vide tous les lines edit de l'onglet patient
     void videLineEditMedecin();//Vide tous les lines edit de l'onglet médecin
-    void chargeParametre();
+    void chargeParametre();//Charge les données paramètres dans les différents élément de l'onglet paramètre
     bool saisieOKMedecin();//vérifie si la saisie est OK pour activer les boutons de l'onglet medecin
     bool saisieOKPatient();//vérifie si la saisie est OK pour activer les boutons de l'onglet patient
+    bool saisieOkPrescription();//vérifié si la saisie est OK pour activer les boutons de l'onglet prescription
 
     //propriétés
         QVector<int> vectorIdMedecins;
@@ -42,6 +43,8 @@ private:
 
 
 private slots:
+    void on_pushButtonValeurParDefaut_clicked();
+    void on_comboBoxPrescriptionPatient_currentIndexChanged(int index);
     void on_comboBoxPatientMedecin_textChanged(QString );
     void on_lineEditPatientNumSS_textChanged(QString );
     void on_lineEditPatientNom_textChanged(QString );
@@ -67,7 +70,6 @@ private slots:
     void on_lineEditParametresCPMedecin_returnPressed();
     void on_lineEditParametreVilleMedecin_returnPressed();
     void on_spinBoxParametreDureeDSI_editingFinished();
-    void on_pushButtonPrescriptionEnregistrer_clicked();
     void on_pushButtonPrescriptionModifier_clicked();
     void on_pushButtonPrescriptionAjouter_clicked();
 };

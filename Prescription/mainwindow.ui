@@ -600,7 +600,7 @@
       </property>
       <widget class="QPushButton" name="pushButtonPrescriptionAjouter">
        <property name="enabled">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="geometry">
         <rect>
@@ -648,7 +648,7 @@
       </widget>
       <widget class="QPushButton" name="pushButtonPrescriptionSupprimer">
        <property name="enabled">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="geometry">
         <rect>
@@ -835,7 +835,7 @@
         </rect>
        </property>
        <property name="maxLength">
-        <number>30</number>
+        <number>15</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_16">
@@ -1050,7 +1050,7 @@
         </rect>
        </property>
        <property name="maxLength">
-        <number>10</number>
+        <number>15</number>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEditMedecinAdr2">
@@ -1334,6 +1334,19 @@
        </property>
        <property name="text">
         <string>Enregistrer</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonValeurParDefaut">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>30</y>
+         <width>92</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Rétablier BDD</string>
        </property>
       </widget>
      </widget>

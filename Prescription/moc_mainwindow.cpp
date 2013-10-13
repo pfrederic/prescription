@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Tue Oct 8 15:45:16 2013
+** Created: Sun Oct 13 17:59:47 2013
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-      28,   14, // methods
+      29,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,46 +32,49 @@ static const uint qt_meta_data_MainWindow[] = {
 
  // slots: signature, parameters, type, tag, flags
       12,   11,   11,   11, 0x08,
-      59,   11,   11,   11, 0x08,
-     104,   11,   11,   11, 0x08,
-     147,   11,   11,   11, 0x08,
-     185,   11,   11,   11, 0x08,
-     226,   11,   11,   11, 0x08,
-     265,   11,   11,   11, 0x08,
-     311,  305,   11,   11, 0x08,
-     354,   11,   11,   11, 0x08,
-     399,  305,   11,   11, 0x08,
-     447,   11,   11,   11, 0x08,
-     488,   11,   11,   11, 0x08,
-     527,  305,   11,   11, 0x08,
-     570,   11,   11,   11, 0x08,
-     610,   11,   11,   11, 0x08,
-     648,   11,   11,   11, 0x08,
-     692,   11,   11,   11, 0x08,
-     736,   11,   11,   11, 0x08,
-     779,   11,   11,   11, 0x08,
-     824,   11,   11,   11, 0x08,
-     866,   11,   11,   11, 0x08,
-     911,   11,   11,   11, 0x08,
-     954,   11,   11,   11, 0x08,
-    1001,   11,   11,   11, 0x08,
-    1050,   11,   11,   11, 0x08,
+      57,   51,   11,   11, 0x08,
+     113,   11,   11,   11, 0x08,
+     160,   11,   11,   11, 0x08,
+     205,   11,   11,   11, 0x08,
+     248,   11,   11,   11, 0x08,
+     286,   11,   11,   11, 0x08,
+     327,   11,   11,   11, 0x08,
+     366,   11,   11,   11, 0x08,
+     406,   51,   11,   11, 0x08,
+     449,   11,   11,   11, 0x08,
+     494,   51,   11,   11, 0x08,
+     542,   11,   11,   11, 0x08,
+     583,   11,   11,   11, 0x08,
+     622,   51,   11,   11, 0x08,
+     665,   11,   11,   11, 0x08,
+     705,   11,   11,   11, 0x08,
+     743,   11,   11,   11, 0x08,
+     787,   11,   11,   11, 0x08,
+     831,   11,   11,   11, 0x08,
+     874,   11,   11,   11, 0x08,
+     919,   11,   11,   11, 0x08,
+     961,   11,   11,   11, 0x08,
+    1006,   11,   11,   11, 0x08,
+    1049,   11,   11,   11, 0x08,
     1096,   11,   11,   11, 0x08,
-    1143,   11,   11,   11, 0x08,
-    1187,   11,   11,   11, 0x08,
+    1145,   11,   11,   11, 0x08,
+    1191,   11,   11,   11, 0x08,
+    1235,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
-    "MainWindow\0\0on_comboBoxPatientMedecin_textChanged(QString)\0"
+    "MainWindow\0\0on_pushButtonValeurParDefaut_clicked()\0"
+    "index\0on_comboBoxPrescriptionPatient_currentIndexChanged(int)\0"
+    "on_comboBoxPatientMedecin_textChanged(QString)\0"
     "on_lineEditPatientNumSS_textChanged(QString)\0"
     "on_lineEditPatientNom_textChanged(QString)\0"
     "on_pushButtonPatientAjouter_clicked()\0"
     "on_pushButtonPatientAbandonner_clicked()\0"
     "on_pushButtonPatientModifier_clicked()\0"
     "on_pushButtonPatientSupprimer_clicked()\0"
-    "index\0on_listWidgetPatients_clicked(QModelIndex)\0"
+    "on_listWidgetPatients_clicked(QModelIndex)\0"
     "on_pushButtonPrescriptionSupprimer_clicked()\0"
     "on_listWidgetPrescriptions_clicked(QModelIndex)\0"
     "on_pushButtonMedecinAbandonner_clicked()\0"
@@ -89,7 +92,6 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_lineEditParametresCPMedecin_returnPressed()\0"
     "on_lineEditParametreVilleMedecin_returnPressed()\0"
     "on_spinBoxParametreDureeDSI_editingFinished()\0"
-    "on_pushButtonPrescriptionEnregistrer_clicked()\0"
     "on_pushButtonPrescriptionModifier_clicked()\0"
     "on_pushButtonPrescriptionAjouter_clicked()\0"
 };
@@ -123,37 +125,38 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: on_comboBoxPatientMedecin_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 1: on_lineEditPatientNumSS_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 2: on_lineEditPatientNom_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 3: on_pushButtonPatientAjouter_clicked(); break;
-        case 4: on_pushButtonPatientAbandonner_clicked(); break;
-        case 5: on_pushButtonPatientModifier_clicked(); break;
-        case 6: on_pushButtonPatientSupprimer_clicked(); break;
-        case 7: on_listWidgetPatients_clicked((*reinterpret_cast< QModelIndex(*)>(_a[1]))); break;
-        case 8: on_pushButtonPrescriptionSupprimer_clicked(); break;
-        case 9: on_listWidgetPrescriptions_clicked((*reinterpret_cast< QModelIndex(*)>(_a[1]))); break;
-        case 10: on_pushButtonMedecinAbandonner_clicked(); break;
-        case 11: on_pushButtonMedecinModifier_clicked(); break;
-        case 12: on_listWidgetMedecins_clicked((*reinterpret_cast< QModelIndex(*)>(_a[1]))); break;
-        case 13: on_pushButtonMedecinSupprimer_clicked(); break;
-        case 14: on_pushButtonMedecinAjouter_clicked(); break;
-        case 15: on_lineEditMedecinAdr2_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 16: on_lineEditMedecinAdr1_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 17: on_lineEditMedecinTel_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 18: on_lineEditMedecinVille_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 19: on_lineEditMedecinCP_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 20: on_lineEditMedecinNumSS_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 21: on_lineEditMedecinNom_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 22: on_lineEditParametresCPMedecin_returnPressed(); break;
-        case 23: on_lineEditParametreVilleMedecin_returnPressed(); break;
-        case 24: on_spinBoxParametreDureeDSI_editingFinished(); break;
-        case 25: on_pushButtonPrescriptionEnregistrer_clicked(); break;
-        case 26: on_pushButtonPrescriptionModifier_clicked(); break;
-        case 27: on_pushButtonPrescriptionAjouter_clicked(); break;
+        case 0: on_pushButtonValeurParDefaut_clicked(); break;
+        case 1: on_comboBoxPrescriptionPatient_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: on_comboBoxPatientMedecin_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 3: on_lineEditPatientNumSS_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 4: on_lineEditPatientNom_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 5: on_pushButtonPatientAjouter_clicked(); break;
+        case 6: on_pushButtonPatientAbandonner_clicked(); break;
+        case 7: on_pushButtonPatientModifier_clicked(); break;
+        case 8: on_pushButtonPatientSupprimer_clicked(); break;
+        case 9: on_listWidgetPatients_clicked((*reinterpret_cast< QModelIndex(*)>(_a[1]))); break;
+        case 10: on_pushButtonPrescriptionSupprimer_clicked(); break;
+        case 11: on_listWidgetPrescriptions_clicked((*reinterpret_cast< QModelIndex(*)>(_a[1]))); break;
+        case 12: on_pushButtonMedecinAbandonner_clicked(); break;
+        case 13: on_pushButtonMedecinModifier_clicked(); break;
+        case 14: on_listWidgetMedecins_clicked((*reinterpret_cast< QModelIndex(*)>(_a[1]))); break;
+        case 15: on_pushButtonMedecinSupprimer_clicked(); break;
+        case 16: on_pushButtonMedecinAjouter_clicked(); break;
+        case 17: on_lineEditMedecinAdr2_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 18: on_lineEditMedecinAdr1_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 19: on_lineEditMedecinTel_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 20: on_lineEditMedecinVille_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 21: on_lineEditMedecinCP_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 22: on_lineEditMedecinNumSS_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 23: on_lineEditMedecinNom_textChanged((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 24: on_lineEditParametresCPMedecin_returnPressed(); break;
+        case 25: on_lineEditParametreVilleMedecin_returnPressed(); break;
+        case 26: on_spinBoxParametreDureeDSI_editingFinished(); break;
+        case 27: on_pushButtonPrescriptionModifier_clicked(); break;
+        case 28: on_pushButtonPrescriptionAjouter_clicked(); break;
         default: ;
         }
-        _id -= 28;
+        _id -= 29;
     }
     return _id;
 }

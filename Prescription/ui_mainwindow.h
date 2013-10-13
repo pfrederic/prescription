@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue Oct 8 15:52:40 2013
+** Created: Sun Oct 13 17:59:08 2013
 **      by: Qt User Interface Compiler version 4.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -124,6 +124,7 @@ public:
     QLabel *label_24;
     QGroupBox *groupBox_14;
     QPushButton *pushButtonPrescriptionEnregistrer;
+    QPushButton *pushButtonValeurParDefaut;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -286,7 +287,7 @@ public:
         groupBox_11->setGeometry(QRect(400, 270, 271, 111));
         pushButtonPrescriptionAjouter = new QPushButton(groupBox_11);
         pushButtonPrescriptionAjouter->setObjectName(QString::fromUtf8("pushButtonPrescriptionAjouter"));
-        pushButtonPrescriptionAjouter->setEnabled(true);
+        pushButtonPrescriptionAjouter->setEnabled(false);
         pushButtonPrescriptionAjouter->setGeometry(QRect(20, 30, 111, 23));
         pushButtonPrescriptionModifier = new QPushButton(groupBox_11);
         pushButtonPrescriptionModifier->setObjectName(QString::fromUtf8("pushButtonPrescriptionModifier"));
@@ -298,7 +299,7 @@ public:
         pushButtonPrescriptionAbandonner->setGeometry(QRect(20, 70, 111, 23));
         pushButtonPrescriptionSupprimer = new QPushButton(groupBox_11);
         pushButtonPrescriptionSupprimer->setObjectName(QString::fromUtf8("pushButtonPrescriptionSupprimer"));
-        pushButtonPrescriptionSupprimer->setEnabled(true);
+        pushButtonPrescriptionSupprimer->setEnabled(false);
         pushButtonPrescriptionSupprimer->setGeometry(QRect(140, 70, 111, 23));
         tabWidgetMain->addTab(tab2, QString());
         tab3 = new QWidget();
@@ -346,7 +347,7 @@ public:
         lineEditPatientNumSS = new QLineEdit(groupBox_8);
         lineEditPatientNumSS->setObjectName(QString::fromUtf8("lineEditPatientNumSS"));
         lineEditPatientNumSS->setGeometry(QRect(10, 100, 251, 20));
-        lineEditPatientNumSS->setMaxLength(30);
+        lineEditPatientNumSS->setMaxLength(15);
         label_16 = new QLabel(groupBox_8);
         label_16->setObjectName(QString::fromUtf8("label_16"));
         label_16->setGeometry(QRect(10, 140, 131, 16));
@@ -403,7 +404,7 @@ public:
         lineEditMedecinNumSS = new QLineEdit(groupBox_5);
         lineEditMedecinNumSS->setObjectName(QString::fromUtf8("lineEditMedecinNumSS"));
         lineEditMedecinNumSS->setGeometry(QRect(10, 80, 251, 20));
-        lineEditMedecinNumSS->setMaxLength(10);
+        lineEditMedecinNumSS->setMaxLength(15);
         lineEditMedecinAdr2 = new QLineEdit(groupBox_5);
         lineEditMedecinAdr2->setObjectName(QString::fromUtf8("lineEditMedecinAdr2"));
         lineEditMedecinAdr2->setGeometry(QRect(10, 160, 251, 20));
@@ -482,6 +483,9 @@ public:
         pushButtonPrescriptionEnregistrer = new QPushButton(groupBox_14);
         pushButtonPrescriptionEnregistrer->setObjectName(QString::fromUtf8("pushButtonPrescriptionEnregistrer"));
         pushButtonPrescriptionEnregistrer->setGeometry(QRect(90, 30, 111, 23));
+        pushButtonValeurParDefaut = new QPushButton(groupBox_14);
+        pushButtonValeurParDefaut->setObjectName(QString::fromUtf8("pushButtonValeurParDefaut"));
+        pushButtonValeurParDefaut->setGeometry(QRect(240, 30, 92, 21));
         tabWidgetMain->addTab(tab5, QString());
         MainWindow->setCentralWidget(centralWidget);
 
@@ -567,6 +571,7 @@ public:
         label_24->setText(QApplication::translate("MainWindow", "mois", 0, QApplication::UnicodeUTF8));
         groupBox_14->setTitle(QApplication::translate("MainWindow", "Action", 0, QApplication::UnicodeUTF8));
         pushButtonPrescriptionEnregistrer->setText(QApplication::translate("MainWindow", "Enregistrer", 0, QApplication::UnicodeUTF8));
+        pushButtonValeurParDefaut->setText(QApplication::translate("MainWindow", "R\303\251tablier BDD", 0, QApplication::UnicodeUTF8));
         tabWidgetMain->setTabText(tabWidgetMain->indexOf(tab5), QApplication::translate("MainWindow", "Param\303\250tres", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
